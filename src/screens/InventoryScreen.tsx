@@ -27,7 +27,7 @@ export function InventoryScreen({ items, onSave, onDelete }: { items: InventoryI
   return (
     <div className={`inventory-layout ${selected ? 'has-detail' : ''}`}>
       <div className="inventory-content">
-        <header className="screen-heading"><p className="eyebrow">Gear codex · {items.length} records</p><h1>Inventory</h1><p>Choose a slot to inspect equipment. Status and collection role are always shown as labels.</p><button type="button" className="primary-button" onClick={() => setEditing('NEW')}>＋ Add gear</button></header>
+        <header className="screen-heading"><p className="eyebrow">Gear codex · {items.length} records</p><h1>Inventory</h1><button type="button" className="primary-button" onClick={() => setEditing('NEW')}>＋ Add gear</button></header>
         <div className="filter-bar" aria-label="Inventory filters">
           <label className="search-field"><span>Search</span><input type="search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Lens, maker, mount…" /></label>
           <label><span>Status</span><select value={ownership} onChange={(event) => setOwnership(event.target.value as OwnershipStatus | 'ALL')}><option value="ALL">All</option><option value="OWNED">Owned</option><option value="ON_THE_WAY">On the way</option><option value="WISHLIST">Wishlist</option><option value="CONSIDERING">Considering</option></select></label>

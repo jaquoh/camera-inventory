@@ -24,7 +24,7 @@ npm run build
 - `public/assets/equipment/`: reference photographs and finished equipment art
 - `public/notebook/images/`: diagrams and photographs used by notebook pages
 
-Canonical content stays in Git. Only the current backpack is stored in the browser's `localStorage`.
+Repository JSON remains the canonical seed content. Inventory changes made through the app are stored as browser-local overrides, including added records and deletion markers; the backpack is also stored locally. This keeps the static app fully usable without a server while allowing future repository updates to merge underneath local changes.
 
 ## Quality checks
 

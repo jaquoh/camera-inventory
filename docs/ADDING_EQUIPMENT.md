@@ -76,13 +76,13 @@ Add the browser paths to the record:
 
 ## 3. Generate artwork only from those references
 
-- `thumbnail.png`: exactly **128 × 112 pixels**, with a transparent background. Compose the object for that canvas; do not export a loose crop around it.
+- `thumbnail.png`: exactly **160 × 136 pixels**, with a transparent background. Compose the object for that canvas; do not export a loose crop around it.
 - `detail.png`: larger pixel-art rendering with recognizable proportions and controls.
 - Preserve the real object's distinctive geometry and markings.
 - Do not invent details hidden by every reference photograph.
 - Review both assets beside the photographs before updating the JSON paths.
 
-The inventory uses fixed **184 × 184 pixel slots** and displays `thumbnail.png` at its native 128 × 112 size. It is never stretched, shrunk, or cropped to fit a responsive card. Keep a small transparent safety margin inside the canvas, but let the equipment fill most of it so the art—not its label—remains the dominant part of the slot. Use hard pixel edges and do not include a background, frame, label, status marker, or shadow in the artwork; the interface supplies those consistently.
+The inventory uses fixed **224 × 224 pixel slots** and displays `thumbnail.png` at its native 160 × 136 size. It is never stretched, shrunk, or cropped to fit a responsive card. Keep a small transparent safety margin inside the canvas, but let the equipment fill most of it so the art—not its label—remains the dominant part of the slot. Use hard pixel edges and do not include a background, frame, label, status marker, or shadow in the artwork; the interface supplies those consistently.
 
 The thumbnail and detail image are separate compositions. Do not derive the inventory thumbnail by letting the browser scale or crop the detail image.
 
