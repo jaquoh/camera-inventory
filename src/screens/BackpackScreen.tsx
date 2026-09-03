@@ -5,6 +5,14 @@ import { useLocalStorage } from '../hooks/useLocalStorage'
 
 const roleSlots = { CAMERA: 'Camera body', LENS: 'Lens slot', ADAPTER: 'Adapter slot', ACCESSORY: 'Accessory slot' }
 
+function packedSlotLabel(item: InventoryItem, packed: InventoryItem[]) {
+  const peers = packed.filter((entry) => entry.category === item.category)
+  const index = peers.findIndex((entry) => entry.id === item.id)
+  if (item.category === 'CAMERA') return index === 0 ? 'Primary camera body' : 'Secondary camera body'
+  if (item.category === 'LENS') return index === 0 ? 'Primary attached lens' : `Lens slot ${index}`
+  return `${roleSlots[item.category]} ${index + 1}`
+}
+
 export function BackpackScreen({ items }: { items: InventoryItem[] }) {
   const [packedIds, setPackedIds] = useLocalStorage<string[]>('vintage-field-kit:backpack', [])
   const [draggedId, setDraggedId] = useState<string | null>(null)
@@ -25,9 +33,9 @@ export function BackpackScreen({ items }: { items: InventoryItem[] }) {
       <div className="backpack-layout">
         <section className="loadout-panel" onDragOver={(event) => event.preventDefault()} onDrop={() => { if (draggedId) add(draggedId); setDraggedId(null) }}>
           <div className="section-title"><h2>Packed kit</h2><span>{packed.length.toString().padStart(2, '0')}</span></div>
-          {packed.length === 0 ? <div className="empty-slot"><span>+</span><p>Drop gear here or use a Pack button</p></div> : <div className="packed-list">{packed.map((item) => <article className="packed-item" key={item.id} draggable onDragStart={() => setDraggedId(item.id)}><div><small>{roleSlots[item.category]}</small><strong>{item.displayName}</strong><span>{item.mount ? mountLabels[item.mount] : item.category} · {item.ownershipStatus.replaceAll('_', ' ')}</span></div><button onClick={() => remove(item.id)} aria-label={`Remove ${item.displayName} from backpack`}>Remove</button></article>)}</div>}
+          {packed.length === 0 ? <div className="empty-slot"><span>+</span><p>Drop gear here or use a Pack button</p></div> : <div className="packed-list">{packed.map((item) => <article className="packed-item" key={item.id} draggable onDragStart={() => setDraggedId(item.id)}><div><small>{packedSlotLabel(item, packed)}</small><strong>{item.displayName}</strong><span>{item.mount ? mountLabels[item.mount] : item.category} · {item.ownershipStatus.replaceAll('_', ' ')}</span></div><button onClick={() => remove(item.id)} aria-label={`Remove ${item.displayName} from backpack`}>Remove</button></article>)}</div>}
         </section>
-        <section className="loadout-panel inventory-pool"><div className="section-title"><h2>Available gear</h2><span>{packable.length.toString().padStart(2, '0')}</span></div><div className="packed-list">{packable.map((item) => <article className="packed-item" key={item.id} draggable onDragStart={() => setDraggedId(item.id)}><div><small>{item.category}</small><strong>{item.displayName}</strong><span>{item.ownershipStatus.replaceAll('_', ' ')}</span></div><button disabled={packedIds.includes(item.id)} onClick={() => add(item.id)} aria-label={`Pack ${item.displayName}`}>{packedIds.includes(item.id) ? 'Packed' : 'Pack'}</button></article>)}</div></section>
+        <section className="loadout-panel inventory-pool" onDragOver={(event) => event.preventDefault()} onDrop={() => { if (draggedId) remove(draggedId); setDraggedId(null) }}><div className="section-title"><h2>Available gear</h2><span>{packable.length.toString().padStart(2, '0')}</span></div><div className="packed-list">{packable.map((item) => <article className="packed-item" key={item.id} draggable onDragStart={() => setDraggedId(item.id)}><div><small>{item.category}</small><strong>{item.displayName}</strong><span>{item.ownershipStatus.replaceAll('_', ' ')}</span></div><button disabled={packedIds.includes(item.id)} onClick={() => add(item.id)} aria-label={`Pack ${item.displayName}`}>{packedIds.includes(item.id) ? 'Packed' : 'Pack'}</button></article>)}</div></section>
       </div>
     </div>
   )

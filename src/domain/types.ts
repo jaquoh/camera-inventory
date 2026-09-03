@@ -36,6 +36,7 @@ export interface InventoryItem {
   }
   acquisition?: Acquisition
   specifications: Record<string, string | number | boolean | null>
+  specificationSources?: Record<string, Array<{ label: string; url: string }>>
   description: string
   personalNotes: string
   tags: string[]

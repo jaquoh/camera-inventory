@@ -89,6 +89,7 @@ main { min-width: 0; padding: clamp(1.25rem, 4vw, 3.5rem); }
 .spec-list { margin: 0; font-size: .76rem; }
 .spec-list > div, .spec-list > dt, .spec-list > dd { display: grid; grid-template-columns: 1fr 1fr; margin: 0; padding: .42rem 0; border-bottom: 1px solid #2d332d; }
 .spec-list > div dt { color: var(--muted); }.spec-list > div dd { margin: 0; text-align: right; }.spec-list > dt + dd { text-align: right; }
+.source-list { margin-top: .8rem; display: flex; flex-direction: column; gap: .35rem; font-size: .7rem; }.source-list strong { color: var(--muted); text-transform: uppercase; }.source-list a { color: #9eb5bd; }
 .tag-list { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: 1rem; }
 
 .loadout-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-bottom: 1rem; background: #3f463e; border: 1px solid #3f463e; }

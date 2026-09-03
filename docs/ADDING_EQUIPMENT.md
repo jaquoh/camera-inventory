@@ -28,6 +28,7 @@ Required shape:
     "notes": null
   },
   "specifications": {},
+  "specificationSources": {},
   "description": "",
   "personalNotes": "",
   "tags": [],
@@ -41,6 +42,14 @@ Required shape:
 Allowed values are defined in `src/domain/types.ts`; runtime validation is in `src/data/schema.ts`. Omit unknown optional facts or use `null` where supported. Never fill a gap by guessing.
 
 Physical focal length belongs in `specifications.focalLengthMin` and `focalLengthMax`. Do not replace it with a crop-equivalent number—the UI calculates equivalent framing from the camera crop factor.
+
+Attach a source to an important fact without putting citation data inside the value:
+
+```json
+"specificationSources": {
+  "weight": [{ "label": "Manufacturer manual", "url": "https://example.com/manual" }]
+}
+```
 
 ## 2. Add real reference photographs
 

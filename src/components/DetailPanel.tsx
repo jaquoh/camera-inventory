@@ -42,9 +42,10 @@ export function DetailPanel({ item, onClose }: { item: InventoryItem; onClose: (
         )}
         <h3>Specifications</h3>
         <dl className="spec-list">
-          {item.mount && <><dt>Mount</dt><dd>{mountLabels[item.mount]}</dd></>}
+          {item.mount && <div><dt>Mount</dt><dd>{mountLabels[item.mount]}</dd></div>}
           {Object.entries(item.specifications).map(([key, value]) => <div key={key}><dt>{specificationLabels[key] ?? key}</dt><dd>{formatSpec(key, value)}</dd></div>)}
         </dl>
+        {item.specificationSources && <div className="source-list"><strong>Specification sources</strong>{Object.entries(item.specificationSources).flatMap(([field, sources]) => sources.map((source) => <a href={source.url} target="_blank" rel="noreferrer" key={`${field}-${source.url}`}>{specificationLabels[field] ?? field}: {source.label}</a>))}</div>}
         {item.acquisition && <><h3>Acquisition</h3><dl className="spec-list"><div><dt>Price</dt><dd>{item.acquisition.price != null ? new Intl.NumberFormat('en-IE', { style: 'currency', currency: item.acquisition.currency ?? 'EUR' }).format(item.acquisition.price) : 'Unknown'}</dd></div>{item.acquisition.notes && <div><dt>Notes</dt><dd>{item.acquisition.notes}</dd></div>}</dl></>}
         <h3>Field notes</h3>
         <p>{item.personalNotes || 'No personal notes yet.'}</p>

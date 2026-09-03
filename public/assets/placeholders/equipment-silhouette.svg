@@ -6,5 +6,4 @@
   <circle cx="160" cy="132" r="49" fill="#101411" stroke="#6f815f" stroke-width="8"/>
   <circle cx="160" cy="132" r="24" fill="#1c292a" stroke="#89968b" stroke-width="4"/>
   <path d="M82 55h45M193 55h45M85 196h150" stroke="#6f815f" stroke-width="4" stroke-dasharray="8 7"/>
-  <text x="160" y="210" text-anchor="middle" fill="#d4c59e" font-family="monospace" font-size="12">REFERENCE PHOTOS NEEDED</text>
 </svg>

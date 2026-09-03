@@ -27,6 +27,7 @@ export const inventoryItemSchema = z.object({
     notes: optionalText,
   }).optional(),
   specifications: z.record(z.string(), z.union([z.string(), z.number(), z.boolean(), z.null()])),
+  specificationSources: z.record(z.string(), z.array(z.object({ label: z.string(), url: z.url() }))).optional(),
   description: z.string(),
   personalNotes: z.string(),
   tags: z.array(z.string()),
