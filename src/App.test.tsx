@@ -37,4 +37,29 @@ describe('field kit application', () => {
     expect(screen.queryByRole('alert')).not.toBeInTheDocument()
     expect(JSON.parse(localStorage.getItem('vintage-field-kit:backpack') ?? '[]')).toEqual(expect.arrayContaining(['sony-nex-5n', 'tokina-80-200-4', 'cy-to-sony-e']))
   })
+
+  it('adds, edits, and removes inventory items', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+
+    await user.click(screen.getByRole('button', { name: /add gear/i }))
+    await user.type(screen.getByLabelText('Manufacturer'), 'Olympus')
+    await user.type(screen.getByLabelText('Model'), 'OM-1')
+    await user.click(screen.getByRole('button', { name: 'Save item' }))
+
+    const olympusSlot = screen.getByRole('button', { name: /view details for olympus om-1/i })
+    expect(olympusSlot).toBeInTheDocument()
+    await user.click(olympusSlot)
+    await user.click(screen.getByRole('button', { name: 'Edit item' }))
+    await user.clear(screen.getByLabelText('Model'))
+    await user.type(screen.getByLabelText('Model'), 'OM-2')
+    await user.click(screen.getByRole('button', { name: 'Save item' }))
+
+    expect(screen.getByRole('button', { name: /view details for olympus om-2/i })).toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: 'Edit item' }))
+    await user.click(screen.getByRole('button', { name: 'Remove item' }))
+    await user.click(screen.getByRole('button', { name: 'Yes, remove' }))
+
+    expect(screen.queryByRole('button', { name: /view details for olympus om-2/i })).not.toBeInTheDocument()
+  })
 })

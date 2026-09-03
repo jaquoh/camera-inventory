@@ -17,7 +17,7 @@ function formatSpec(key: string, value: string | number | boolean | null) {
   return String(value)
 }
 
-export function DetailPanel({ item, onClose, mobileOpen = false }: { item: InventoryItem; onClose: () => void; mobileOpen?: boolean }) {
+export function DetailPanel({ item, onClose, onEdit, mobileOpen = false }: { item: InventoryItem; onClose: () => void; onEdit: () => void; mobileOpen?: boolean }) {
   const min = item.specifications.focalLengthMin
   const max = item.specifications.focalLengthMax
   const equivalent = item.category === 'LENS' && typeof min === 'number' && typeof max === 'number'
@@ -26,7 +26,7 @@ export function DetailPanel({ item, onClose, mobileOpen = false }: { item: Inven
 
   return (
     <aside className={`detail-panel ${mobileOpen ? 'is-open' : ''}`} aria-label={`${item.displayName} details`}>
-      <div className="detail-panel__title">Item preview</div>
+      <div className="detail-panel__title">Item preview <button type="button" onClick={onEdit}>Edit item</button></div>
       <button className="icon-button detail-panel__close" onClick={onClose} aria-label="Close item details">×</button>
       <GearVisual item={item} detail />
       <div className="detail-panel__content">

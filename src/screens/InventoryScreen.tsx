@@ -1,14 +1,16 @@
 import { useMemo, useState } from 'react'
 import { GearCard } from '../components/GearCard'
 import { DetailPanel } from '../components/DetailPanel'
+import { InventoryEditor } from '../components/InventoryEditor'
 import { filterInventory, mountLabels } from '../domain/inventory'
 import { collectionRoles, mounts, type CollectionRole, type InventoryItem, type Mount, type OwnershipStatus } from '../domain/types'
 
 const categories = ['CAMERA', 'LENS', 'ADAPTER', 'ACCESSORY'] as const
 const sectionLabels = { CAMERA: '▣ Camera bodies', LENS: '◉ Lenses', ADAPTER: '◇ Adapters', ACCESSORY: '◆ Accessories' }
 
-export function InventoryScreen({ items }: { items: InventoryItem[] }) {
-  const [selected, setSelected] = useState<InventoryItem | null>(() => items.find((item) => item.id === 'sony-nex-5n') ?? items[0] ?? null)
+export function InventoryScreen({ items, onSave, onDelete }: { items: InventoryItem[]; onSave: (item: InventoryItem) => void; onDelete: (id: string) => void }) {
+  const [selectedId, setSelectedId] = useState<string | null>(() => items.find((item) => item.id === 'sony-nex-5n')?.id ?? items[0]?.id ?? null)
+  const [editing, setEditing] = useState<InventoryItem | 'NEW' | null>(null)
   const [mobileDetailOpen, setMobileDetailOpen] = useState(false)
   const [search, setSearch] = useState('')
   const [ownership, setOwnership] = useState<OwnershipStatus | 'ALL'>('ALL')
@@ -17,11 +19,15 @@ export function InventoryScreen({ items }: { items: InventoryItem[] }) {
   const filtered = useMemo(() => filterInventory(items, { search, ownership, mount, role }), [items, search, ownership, mount, role])
   const fieldKit = filtered.filter((item) => ['OWNED', 'ON_THE_WAY'].includes(item.ownershipStatus))
   const desired = filtered.filter((item) => !['OWNED', 'ON_THE_WAY'].includes(item.ownershipStatus))
+  const selected = items.find((item) => item.id === selectedId) ?? items[0] ?? null
+  const openItem = (item: InventoryItem) => { setSelectedId(item.id); setMobileDetailOpen(true) }
+  const saveItem = (item: InventoryItem) => { onSave(item); setSelectedId(item.id); setEditing(null) }
+  const removeItem = (id: string) => { onDelete(id); setSelectedId(null); setMobileDetailOpen(false); setEditing(null) }
 
   return (
     <div className={`inventory-layout ${selected ? 'has-detail' : ''}`}>
       <div className="inventory-content">
-        <header className="screen-heading"><p className="eyebrow">Gear codex · {items.length} records</p><h1>Inventory</h1><p>Choose a slot to inspect equipment. Status and collection role are always shown as labels.</p></header>
+        <header className="screen-heading"><p className="eyebrow">Gear codex · {items.length} records</p><h1>Inventory</h1><p>Choose a slot to inspect equipment. Status and collection role are always shown as labels.</p><button type="button" className="primary-button" onClick={() => setEditing('NEW')}>＋ Add gear</button></header>
         <div className="filter-bar" aria-label="Inventory filters">
           <label className="search-field"><span>Search</span><input type="search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Lens, maker, mount…" /></label>
           <label><span>Status</span><select value={ownership} onChange={(event) => setOwnership(event.target.value as OwnershipStatus | 'ALL')}><option value="ALL">All</option><option value="OWNED">Owned</option><option value="ON_THE_WAY">On the way</option><option value="WISHLIST">Wishlist</option><option value="CONSIDERING">Considering</option></select></label>
@@ -30,12 +36,13 @@ export function InventoryScreen({ items }: { items: InventoryItem[] }) {
         </div>
         {categories.map((category) => {
           const categoryItems = fieldKit.filter((item) => item.category === category)
-          return categoryItems.length > 0 && <section className="gear-section" key={category}><div className="section-title"><h2>{sectionLabels[category]}</h2><span>{categoryItems.length.toString().padStart(2, '0')}</span></div><div className="gear-grid">{categoryItems.map((item) => <GearCard key={item.id} item={item} selected={selected?.id === item.id} onOpen={(gear) => { setSelected(gear); setMobileDetailOpen(true) }} />)}</div></section>
+          return categoryItems.length > 0 && <section className="gear-section" key={category}><div className="section-title"><h2>{sectionLabels[category]}</h2><span>{categoryItems.length.toString().padStart(2, '0')}</span></div><div className="gear-grid">{categoryItems.map((item) => <GearCard key={item.id} item={item} selected={selected?.id === item.id} onOpen={openItem} />)}</div></section>
         })}
-        {desired.length > 0 && <section className="gear-section wishlist"><div className="section-title"><div><p className="eyebrow">Desired gear · not owned</p><h2>✦ Wishlist & candidates</h2></div><span>{desired.length.toString().padStart(2, '0')}</span></div><div className="gear-grid">{desired.map((item) => <GearCard key={item.id} item={item} selected={selected?.id === item.id} onOpen={(gear) => { setSelected(gear); setMobileDetailOpen(true) }} />)}</div></section>}
+        {desired.length > 0 && <section className="gear-section wishlist"><div className="section-title"><div><p className="eyebrow">Desired gear · not owned</p><h2>✦ Wishlist & candidates</h2></div><span>{desired.length.toString().padStart(2, '0')}</span></div><div className="gear-grid">{desired.map((item) => <GearCard key={item.id} item={item} selected={selected?.id === item.id} onOpen={openItem} />)}</div></section>}
         {filtered.length === 0 && <div className="empty-state"><h2>No gear found</h2><p>Clear or adjust the filters to see more of the field kit.</p></div>}
       </div>
-      {selected && <DetailPanel item={selected} mobileOpen={mobileDetailOpen} onClose={() => setMobileDetailOpen(false)} />}
+      {selected && <DetailPanel item={selected} mobileOpen={mobileDetailOpen} onEdit={() => setEditing(selected)} onClose={() => setMobileDetailOpen(false)} />}
+      {editing && <InventoryEditor key={editing === 'NEW' ? 'new' : editing.id} item={editing === 'NEW' ? undefined : editing} existingIds={items.map((item) => item.id)} onSave={saveItem} onDelete={removeItem} onClose={() => setEditing(null)} />}
     </div>
   )
 }
