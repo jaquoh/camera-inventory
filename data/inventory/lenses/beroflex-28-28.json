@@ -1,0 +1,9 @@
+{
+  "id": "beroflex-28-28", "category": "LENS", "manufacturer": "Beroflex", "model": "28mm f/2.8", "displayName": "Beroflex 28mm f/2.8",
+  "ownershipStatus": "OWNED", "collectionRole": "EXPERIMENT", "mount": "MINOLTA_MC_MD", "compatibility": {},
+  "acquisition": { "price": 6, "currency": "EUR", "date": null, "source": null, "condition": null, "notes": null },
+  "specifications": { "focalLengthMin": 28, "focalLengthMax": 28, "maxAperture": 2.8, "focusType": "Manual" },
+  "description": "A very inexpensive wide-angle manual-focus learning lens in Minolta MC mount.",
+  "personalNotes": "Experiment or temporary lens and a likely resale/bundle candidate if replaced. The mount does not imply Minolta manufactured the lens.",
+  "tags": ["vintage", "prime", "manual-focus", "learning"], "referenceImages": [], "thumbnail": null, "detailImage": null, "links": []
+}

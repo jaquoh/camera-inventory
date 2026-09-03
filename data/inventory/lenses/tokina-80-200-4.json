@@ -1,0 +1,9 @@
+{
+  "id": "tokina-80-200-4", "category": "LENS", "manufacturer": "Tokina", "model": "80–200mm f/4", "displayName": "Tokina 80–200mm f/4",
+  "ownershipStatus": "OWNED", "collectionRole": "EXPERIMENT", "mount": "CONTAX_YASHICA", "compatibility": {},
+  "acquisition": { "price": 5, "currency": "EUR", "date": null, "source": null, "condition": null, "notes": null },
+  "specifications": { "focalLengthMin": 80, "focalLengthMax": 200, "maxAperture": 4, "focusType": "Manual" },
+  "description": "First inexpensive manual telephoto zoom and a way to learn long-lens handling.",
+  "personalNotes": "Frames approximately like 120–300mm on the NEX-5N. It does not replace the plan for one genuinely good 300–400mm-class telephoto.",
+  "tags": ["vintage", "zoom", "telephoto", "manual-focus"], "referenceImages": [], "thumbnail": null, "detailImage": null, "links": []
+}

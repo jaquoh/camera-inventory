@@ -1,0 +1,6 @@
+{
+  "id": "minolta-to-sony-e", "category": "ADAPTER", "manufacturer": "Unknown", "model": "Minolta MC/MD to Sony E", "displayName": "Minolta MC/MD → Sony E adapter",
+  "ownershipStatus": "OWNED", "collectionRole": "UTILITY", "mount": null, "compatibility": { "sourceMount": "MINOLTA_MC_MD", "targetMount": "SONY_E" },
+  "specifications": { "electronic": false, "autofocusSupport": false }, "description": "Adapts Minolta MC/MD-mount lenses to Sony E bodies.",
+  "personalNotes": "Required for the Beroflex 28mm.", "tags": ["adapter"], "referenceImages": [], "thumbnail": null, "detailImage": null, "links": []
+}

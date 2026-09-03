@@ -1,0 +1,7 @@
+{
+  "id": "canon-nfd-300-4", "category": "LENS", "manufacturer": "Canon", "model": "New FD 300mm f/4", "displayName": "Canon New FD 300mm f/4",
+  "ownershipStatus": "WISHLIST", "collectionRole": "FUTURE", "mount": "CANON_FD", "compatibility": {},
+  "specifications": { "focalLengthMin": 300, "focalLengthMax": 300, "maxAperture": 4, "focusType": "Manual" },
+  "description": "Candidate for the single high-quality long-telephoto slot.", "personalNotes": "Approximately 450mm-equivalent framing on the NEX-5N.",
+  "tags": ["wishlist", "supertelephoto", "keeper-candidate"], "referenceImages": [], "thumbnail": null, "detailImage": null, "links": []
+}

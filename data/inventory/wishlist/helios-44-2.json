@@ -1,0 +1,7 @@
+{
+  "id": "helios-44-2", "category": "LENS", "manufacturer": "KMZ or other verified maker", "model": "Helios 44-2 58mm f/2", "displayName": "Helios 44-2 58mm f/2",
+  "ownershipStatus": "WISHLIST", "collectionRole": "FUTURE", "mount": "M42", "compatibility": {},
+  "specifications": { "focalLengthMin": 58, "focalLengthMax": 58, "maxAperture": 2, "focusType": "Manual" },
+  "description": "Character-lens candidate for swirly bokeh rather than a replacement for the Takumar.", "personalNotes": "Selected 44M variants may also be worth considering; verify the exact version before purchase.",
+  "tags": ["wishlist", "character", "swirly-bokeh"], "referenceImages": [], "thumbnail": null, "detailImage": null, "links": []
+}

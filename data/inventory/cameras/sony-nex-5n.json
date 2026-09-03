@@ -1,0 +1,8 @@
+{
+  "id": "sony-nex-5n", "category": "CAMERA", "manufacturer": "Sony", "model": "NEX-5N", "displayName": "Sony NEX-5N",
+  "ownershipStatus": "OWNED", "collectionRole": "KEEPER", "mount": "SONY_E", "compatibility": { "cropFactor": 1.5 },
+  "specifications": { "sensorFormat": "APS-C", "sensorType": "CMOS", "megapixels": 16.1, "cameraType": "Mirrorless", "cropFactor": 1.5 },
+  "description": "Compact Sony E-mount mirrorless camera and current primary body.",
+  "personalNotes": "Keeper for now. The long-term plan is a Sony A7-series full-frame E-mount body; no A7 is currently owned.",
+  "tags": ["primary-camera", "aps-c", "mirrorless"], "referenceImages": [], "thumbnail": null, "detailImage": null, "links": []
+}

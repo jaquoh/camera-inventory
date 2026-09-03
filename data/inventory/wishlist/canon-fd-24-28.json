@@ -1,0 +1,7 @@
+{
+  "id": "canon-fd-24-28", "category": "LENS", "manufacturer": "Canon", "model": "FD 24mm f/2.8", "displayName": "Canon FD 24mm f/2.8",
+  "ownershipStatus": "WISHLIST", "collectionRole": "FUTURE", "mount": "CANON_FD", "compatibility": {},
+  "specifications": { "focalLengthMin": 24, "focalLengthMax": 24, "maxAperture": 2.8, "focusType": "Manual", "fullFrameCoverage": true },
+  "description": "Primary wide-angle keeper target; approximately 36mm-equivalent framing on APS-C.", "personalNotes": "A good Vivitar 24mm f/2.8 is an alternative, but its exact manufacturer, version, and mount must be verified.",
+  "tags": ["wishlist", "wide-angle", "prime"], "referenceImages": [], "thumbnail": null, "detailImage": null, "links": []
+}

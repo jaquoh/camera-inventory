@@ -1,0 +1,6 @@
+{
+  "id": "sony-fda-ev1s", "category": "ACCESSORY", "manufacturer": "Sony", "model": "FDA-EV1S", "displayName": "Sony FDA-EV1S electronic viewfinder",
+  "ownershipStatus": "OWNED", "collectionRole": "UTILITY", "mount": null, "compatibility": { "usedWith": ["sony-nex-5n"] },
+  "specifications": { "accessoryType": "Electronic viewfinder" }, "description": "Electronic viewfinder used with the Sony NEX-5N.",
+  "personalNotes": "A relatively interesting and valuable accessory; keep tracked as its own item.", "tags": ["viewfinder", "sony"], "referenceImages": [], "thumbnail": null, "detailImage": null, "links": []
+}

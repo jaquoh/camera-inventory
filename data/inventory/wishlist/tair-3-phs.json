@@ -1,0 +1,8 @@
+{
+  "id": "tair-3-phs", "category": "LENS", "manufacturer": "To verify", "model": "Tair-3-PhS 300mm f/4.5", "displayName": "Tair-3-PhS 300mm f/4.5 Photosniper",
+  "ownershipStatus": "CONSIDERING", "collectionRole": "FUTURE", "mount": "M42", "compatibility": {},
+  "acquisition": { "price": 45, "currency": "EUR", "date": null, "source": null, "condition": null, "notes": "Observed asking price; not purchased." },
+  "specifications": { "focalLengthMin": 300, "focalLengthMax": 300, "maxAperture": 4.5, "focusType": "Manual" },
+  "description": "Unusual Soviet Photosniper lens with a distinctive mechanism and history.", "personalNotes": "Interesting but optional if the budget is reserved for one excellent telephoto. Not owned.",
+  "tags": ["considering", "supertelephoto", "historical", "unusual"], "referenceImages": [], "thumbnail": null, "detailImage": null, "links": []
+}

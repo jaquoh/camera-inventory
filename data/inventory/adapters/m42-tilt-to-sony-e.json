@@ -1,0 +1,7 @@
+{
+  "id": "m42-tilt-to-sony-e", "category": "ADAPTER", "manufacturer": "Unknown", "model": "M42 to Sony E tilt", "displayName": "M42 → Sony E tilt adapter",
+  "ownershipStatus": "OWNED", "collectionRole": "UTILITY", "mount": null, "compatibility": { "sourceMount": "M42", "targetMount": "SONY_E" },
+  "specifications": { "electronic": false, "autofocusSupport": false, "tilt": true },
+  "description": "Adapts M42 lenses and tilts the focal plane for selective-focus experiments.",
+  "personalNotes": "Works with the Takumar. It cannot accept the Minolta-mount Beroflex.", "tags": ["adapter", "tilt", "experiment"], "referenceImages": [], "thumbnail": null, "detailImage": null, "links": []
+}

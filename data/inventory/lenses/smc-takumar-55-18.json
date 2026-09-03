@@ -1,0 +1,9 @@
+{
+  "id": "smc-takumar-55-18", "category": "LENS", "manufacturer": "Asahi", "model": "SMC Takumar 55mm f/1.8", "displayName": "Asahi SMC Takumar 55mm f/1.8",
+  "ownershipStatus": "OWNED", "collectionRole": "KEEPER", "mount": "M42", "compatibility": {},
+  "acquisition": { "price": 43, "currency": "EUR", "date": null, "source": null, "condition": null, "notes": null },
+  "specifications": { "focalLengthMin": 55, "focalLengthMax": 55, "maxAperture": 1.8, "focusType": "Manual", "fullFrameCoverage": true },
+  "description": "The cornerstone of the vintage lens collection: a manual-focus M42 normal prime.",
+  "personalNotes": "On the NEX-5N it retains a real 55mm focal length while framing like approximately 82.5mm on full frame. On a future full-frame body it returns to native 55mm framing.",
+  "tags": ["vintage", "prime", "manual-focus", "cornerstone"], "referenceImages": [], "thumbnail": null, "detailImage": null, "links": []
+}

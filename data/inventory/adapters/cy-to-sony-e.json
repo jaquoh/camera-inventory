@@ -1,0 +1,7 @@
+{
+  "id": "cy-to-sony-e", "category": "ADAPTER", "manufacturer": "Unknown", "model": "C/Y to Sony E", "displayName": "C/Y → Sony E adapter",
+  "ownershipStatus": "ON_THE_WAY", "collectionRole": "UTILITY", "mount": null, "compatibility": { "sourceMount": "CONTAX_YASHICA", "targetMount": "SONY_E" },
+  "acquisition": { "price": 12, "currency": "EUR", "date": null, "source": null, "condition": null, "notes": "Ordered; arrival not yet confirmed." },
+  "specifications": { "electronic": false, "autofocusSupport": false }, "description": "Required to mount C/Y lenses on Sony E bodies.",
+  "personalNotes": "Ordered for the Tokina 80–200mm and future C/Y lenses.", "tags": ["adapter", "ordered"], "referenceImages": [], "thumbnail": null, "detailImage": null, "links": []
+}

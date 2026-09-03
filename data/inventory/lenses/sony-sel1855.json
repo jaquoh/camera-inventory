@@ -1,0 +1,7 @@
+{
+  "id": "sony-sel1855", "category": "LENS", "manufacturer": "Sony", "model": "SEL1855 18-55mm OSS", "displayName": "Sony SEL1855 18–55mm OSS",
+  "ownershipStatus": "OWNED", "collectionRole": "UTILITY", "mount": "SONY_E", "compatibility": {},
+  "specifications": { "focalLengthMin": 18, "focalLengthMax": 55, "focusType": "Autofocus", "stabilization": "Optical SteadyShot" },
+  "description": "Native stabilized everyday zoom and a useful reference point against adapted vintage lenses.", "personalNotes": "Everyday utility lens.",
+  "tags": ["zoom", "autofocus", "stabilized", "everyday"], "referenceImages": [], "thumbnail": null, "detailImage": null, "links": []
+}

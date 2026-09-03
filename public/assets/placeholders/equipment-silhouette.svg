@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" role="img" aria-labelledby="title desc">
+  <title id="title">Equipment image placeholder</title>
+  <desc id="desc">A generic camera equipment silhouette awaiting reference photographs.</desc>
+  <rect width="320" height="220" fill="#151b17"/>
+  <path d="M62 82h42l14-22h72l18 22h49l20 20v61l-18 18H61l-18-18v-61z" fill="#222a24" stroke="#b89147" stroke-width="5"/>
+  <circle cx="160" cy="132" r="49" fill="#101411" stroke="#6f815f" stroke-width="8"/>
+  <circle cx="160" cy="132" r="24" fill="#1c292a" stroke="#89968b" stroke-width="4"/>
+  <path d="M82 55h45M193 55h45M85 196h150" stroke="#6f815f" stroke-width="4" stroke-dasharray="8 7"/>
+  <text x="160" y="210" text-anchor="middle" fill="#d4c59e" font-family="monospace" font-size="12">REFERENCE PHOTOS NEEDED</text>
+</svg>
