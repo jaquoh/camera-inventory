@@ -10,13 +10,22 @@ export function NotebookScreen({ pages }: { pages: NotebookPage[] }) {
   const [activeId, setActiveId] = useState<string | undefined>(pages[0]?.id)
   const activePage = pages.find((page) => page.id === activeId) ?? pagesInTab[0]
   const chooseTab = (tab: string) => { setActiveTab(tab); setActiveId(pages.find((page) => page.tab === tab)?.id) }
+  const openInternalPage = (id: string) => {
+    const page = pages.find((entry) => entry.id === id)
+    if (page) { setActiveTab(page.tab); setActiveId(page.id) }
+  }
 
   return (
     <div><header className="screen-heading"><p className="eyebrow">Git-versioned knowledge</p><h1>Field Notebook</h1><p>Real notes, techniques, and experiments in plain Markdown.</p></header>
       <div className="notebook-tabs" role="tablist" aria-label="Notebook sections">{tabs.map((tab) => <button role="tab" aria-selected={activeTab === tab} onClick={() => chooseTab(tab)} key={tab}>{tab}</button>)}</div>
       <div className="notebook">
         <nav className="notebook-index" aria-label={`${activeTab} pages`}><p className="eyebrow">{activeTab}</p>{pagesInTab.map((page) => <button className={page.id === activePage?.id ? 'active' : ''} onClick={() => setActiveId(page.id)} key={page.id}><strong>{page.title}</strong><span>{page.summary}</span></button>)}</nav>
-        <article className="notebook-page">{activePage ? <ReactMarkdown remarkPlugins={[remarkGfm]}>{activePage.body}</ReactMarkdown> : <p>No page selected.</p>}</article>
+        <article className="notebook-page">{activePage ? <ReactMarkdown remarkPlugins={[remarkGfm]} components={{
+          a: ({ href, children, ...props }) => href?.startsWith('#')
+            ? <a href={href} onClick={(event) => { event.preventDefault(); openInternalPage(href.slice(1)) }} {...props}>{children}</a>
+            : <a href={href} rel="noreferrer" target="_blank" {...props}>{children}</a>,
+          img: ({ title, alt, ...props }) => <span className="notebook-image"><img alt={alt ?? ''} {...props} />{title && <span className="notebook-caption">{title}</span>}</span>,
+        }}>{activePage.body}</ReactMarkdown> : <p>No page selected.</p>}</article>
       </div>
     </div>
   )
