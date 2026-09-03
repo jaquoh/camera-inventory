@@ -4,8 +4,8 @@ import type { InventoryItem } from '../domain/types'
 
 const inventoryModules = import.meta.glob('../../data/inventory/**/*.json', { eager: true, import: 'default' })
 
-export const inventory: InventoryItem[] = Object.entries(inventoryModules)
-  .map(([path, value]) => inventoryItemSchema.parse(value, { reportInput: true }))
+export const inventory: InventoryItem[] = Object.values(inventoryModules)
+  .map((value) => inventoryItemSchema.parse(value, { reportInput: true }))
   .sort((a, b) => a.displayName.localeCompare(b.displayName))
 
 const uniqueIds = new Set(inventory.map((item) => item.id))
