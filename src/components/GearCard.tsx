@@ -4,7 +4,7 @@ import { GearVisual } from './GearVisual'
 
 const roleIcons = { KEEPER: '★', EXPERIMENT: '⌁', TEMPORARY: '↻', RESELL: '⇄', UTILITY: '◆', FUTURE: '◇' }
 
-export function GearCard({ item, onOpen }: { item: InventoryItem; onOpen: (item: InventoryItem) => void }) {
+export function GearCard({ item, selected, onOpen }: { item: InventoryItem; selected: boolean; onOpen: (item: InventoryItem) => void }) {
   const min = item.specifications.focalLengthMin
   const max = item.specifications.focalLengthMax
   const aperture = item.specifications.maxAperture
@@ -13,12 +13,11 @@ export function GearCard({ item, onOpen }: { item: InventoryItem; onOpen: (item:
     : item.category.replace('_', ' ')
 
   return (
-    <button className={`gear-card role-${item.collectionRole.toLowerCase()}`} onClick={() => onOpen(item)} aria-label={`View details for ${item.displayName}`}>
+    <button className={`gear-card role-${item.collectionRole.toLowerCase()}`} onClick={() => onOpen(item)} aria-label={`View details for ${item.displayName}`} aria-pressed={selected}>
       <GearVisual item={item} />
       <span className="gear-card__maker">{item.manufacturer}</span>
       <strong>{item.model}</strong>
-      <span>{lensLine}</span>
-      <span>{item.mount ? mountLabels[item.mount] : item.category}</span>
+      <span className="gear-card__specs">{lensLine} · {item.mount ? mountLabels[item.mount] : item.category}</span>
       <span className="gear-card__state">{roleIcons[item.collectionRole]} {item.collectionRole} · {item.ownershipStatus.replaceAll('_', ' ')}</span>
     </button>
   )

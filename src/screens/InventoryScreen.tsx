@@ -30,9 +30,9 @@ export function InventoryScreen({ items }: { items: InventoryItem[] }) {
         </div>
         {categories.map((category) => {
           const categoryItems = fieldKit.filter((item) => item.category === category)
-          return categoryItems.length > 0 && <section className="gear-section" key={category}><div className="section-title"><h2>{sectionLabels[category]}</h2><span>{categoryItems.length.toString().padStart(2, '0')}</span></div><div className="gear-grid">{categoryItems.map((item) => <GearCard key={item.id} item={item} onOpen={(gear) => { setSelected(gear); setMobileDetailOpen(true) }} />)}</div></section>
+          return categoryItems.length > 0 && <section className="gear-section" key={category}><div className="section-title"><h2>{sectionLabels[category]}</h2><span>{categoryItems.length.toString().padStart(2, '0')}</span></div><div className="gear-grid">{categoryItems.map((item) => <GearCard key={item.id} item={item} selected={selected?.id === item.id} onOpen={(gear) => { setSelected(gear); setMobileDetailOpen(true) }} />)}</div></section>
         })}
-        {desired.length > 0 && <section className="gear-section wishlist"><div className="section-title"><div><p className="eyebrow">Desired gear · not owned</p><h2>✦ Wishlist & candidates</h2></div><span>{desired.length.toString().padStart(2, '0')}</span></div><div className="gear-grid">{desired.map((item) => <GearCard key={item.id} item={item} onOpen={(gear) => { setSelected(gear); setMobileDetailOpen(true) }} />)}</div></section>}
+        {desired.length > 0 && <section className="gear-section wishlist"><div className="section-title"><div><p className="eyebrow">Desired gear · not owned</p><h2>✦ Wishlist & candidates</h2></div><span>{desired.length.toString().padStart(2, '0')}</span></div><div className="gear-grid">{desired.map((item) => <GearCard key={item.id} item={item} selected={selected?.id === item.id} onOpen={(gear) => { setSelected(gear); setMobileDetailOpen(true) }} />)}</div></section>}
         {filtered.length === 0 && <div className="empty-state"><h2>No gear found</h2><p>Clear or adjust the filters to see more of the field kit.</p></div>}
       </div>
       {selected && <DetailPanel item={selected} mobileOpen={mobileDetailOpen} onClose={() => setMobileDetailOpen(false)} />}
